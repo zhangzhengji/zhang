@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新乡丝路 — TikTok Shop赋能中原农产业带出海</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'agri-green': '#10B981',
+                        'agri-dark': '#047857',
+                        'tech-blue': '#3B82F6',
+                        'tech-dark': '#1E40AF',
+                        'soil': '#78350F',
+                        'wheat': '#F59E0B'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #047857 0%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #ecfdf5 0%, #dbeafe 50%, #eff6ff 100%);
+        }
+        .section-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-blur {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .chart-bar {
+            transition: width 1.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- 固定导航栏 -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-200/50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-agri-green to-tech-blue rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">新</span>
+                    </div>
+                    <span class="font-bold text-gray-800 tracking-tight">新乡丝路</span>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+                    <a href="#intro" class="hover:text-agri-green transition-colors">项目简介</a>
+                    <a href="#pain" class="hover:text-agri-green transition-colors">行业痛点</a>
+                    <a href="#solution" class="hover:text-agri-green transition-colors">解决方案</a>
+                    <a href="#innovation" class="hover:text-agri-green transition-colors">核心创新</a>
+                    <a href="#business" class="hover:text-agri-green transition-colors">商业模式</a>
+                    <a href="#data" class="hover:text-agri-green transition-colors">运营成果</a>
+                    <a href="#team" class="hover:text-agri-green transition-colors">团队介绍</a>
+                    <a href="#future" class="hover:text-agri-green transition-colors">未来规划</a>
+                </div>
+                <div class="md:hidden">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gray-600 hover:text-gray-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#intro" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-agri-green hover:bg-gray-50 rounded-md">项目简介</a>
+                <a href="#pain" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-agri-green hover:bg-gray-50 rounded-md">行业痛点</a>
+                <a href="#solution" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-agri-green hover:bg-gray-50 rounded-md">解决方案</a>
+                <a href="#innovation" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-agri-green hover:bg-gray-50 rounded-md">核心创新</a>
+                <a href="#business" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-agri-green hover:bg-gray-50 rounded-md">商业模式</a>
+                <a href="#data" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-agri-green hover:bg-gray-50 rounded-md">运营成果</a>
+                <a href="#team" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-agri-green hover:bg-gray-50 rounded-md">团队介绍</a>
+                <a href="#future" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-agri-green hover:bg-gray-50 rounded-md">未来规划</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. 封面模块 -->
+    <section class="relative min-h-screen flex items-center justify-center hero-bg overflow-hidden pt-16">
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-agri-green rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
+            <div class="absolute top-40 right-10 w-72 h-72 bg-tech-blue rounded-full mix-blend-multiply filter blur-xl animate-float" style="animation-delay: 2s"></div>
+            <div class="absolute -bottom-8 left-1/2 w-72 h-72 bg-wheat rounded-full mix-blend-multiply filter blur-xl animate-float" style="animation-delay: 4s"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/80 border border-agri-green/20 text-agri-green text-sm font-semibold mb-6 shadow-sm animate-fade-in-up">
+                <span class="w-2 h-2 bg-agri-green rounded-full mr-2 animate-pulse"></span>
+                "挑战杯"大学生创新创业大赛
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-in-up" style="animation-delay: 0.2s">
+                <span class="gradient-text italic">新乡丝路</span>
+            </h1>
+            
+            <h2 class="text-2xl md:text-4xl font-bold text-gray-800 mb-4 animate-fade-in-up" style="animation-delay: 0.4s">
+                TikTok Shop赋能中原农产业带出海
+            </h2>
+            
+            <p class="text-xl md:text-2xl text-gray-600 font-light mb-12 animate-fade-in-up" style="animation-delay: 0.6s">
+                数字丝路助农出海，黄河农品走向全球
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in-up" style="animation-delay: 0.8s">
+                <div class="glass-card px-6 py-3 rounded-xl shadow-lg">
+                    <p class="text-xs text-gray-500 uppercase tracking-wider">参赛学校</p>
+                    <p class="font-semibold text-gray-800">平顶山学院</p>
+                </div>
+                <div class="glass-card px-6 py-3 rounded-xl shadow-lg">
+                    <p class="text-xs text-gray-500 uppercase tracking-wider">团队名称</p>
+                    <p class="font-semibold text-gray-800">新乡丝路创业团队</p>
+                </div>
+                <div class="glass-card px-6 py-3 rounded-xl shadow-lg">
+                    <p class="text-xs text-gray-500 uppercase tracking-wider">指导老师</p>
+                    <p class="font-semibold text-gray-800">刘保菊 副教授</p>
+                </div>
+            </div>
+
+            <div class="animate-fade-in-up" style="animation-delay: 1s">
+                <a href="#intro" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-agri-green to-tech-blue text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                    了解项目
+                    <svg class="w-5 h-5 ml-2 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 项目简介模块 -->
+    <section id="intro" class="py-20 bg-white section-fade">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">项目简介</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-agri-green to-tech-blue mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="glass-card rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-100">
+                <div class="text-center mb-8">
+                    <span class="inline-block px-4 py-2 bg-agri-green/10 text-agri-dark rounded-full text-sm font-semibold mb-4">一句话定位</span>
+                    <p class="text-2xl md:text-3xl font-bold text-gray-800 leading-relaxed">
+                        我们是<span class="text-agri-green">大学生跨境电商创业团队</span>，依托<span class="text-tech-blue">TikTok Shop</span>，帮助中原农产业带优质农产品出海，打造<span class="text-wheat">轻资产、零库存</span>的创新创业模式
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 mt-12">
+                    <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-agri-green/5 to-transparent hover:shadow-lg transition-shadow">
+                        <div class="w-16 h-16 bg-agri-green/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-agri-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-2">全球视野</h3>
+                        <p class="text-sm text-gray-600">对接TikTok Shop全球流量，直连海外消费者</p>
+                    </div>
+                    <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-tech-blue/5 to-transparent hover:shadow-lg transition-shadow">
+                        <div class="w-16 h-16 bg-tech-blue/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-tech-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-2">数字赋能</h3>
+                        <p class="text-sm text-gray-600">短视频+直播内容电商，重构农产品出海链路</p>
+                    </div>
+                    <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-wheat/10 to-transparent hover:shadow-lg transition-shadow">
+                        <div class="w-16 h-16 bg-wheat/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-soil" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-2">轻资产模式</h3>
+                        <p class="text-sm text-gray-600">零库存、低风险，大学生创业首选路径</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 行业痛点模块 -->
+    <section id="pain" class="py-20 bg-gray-50 section-fade">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">行业痛点</h2>
+                <p class="text-gray-600">中原农产品出海面临的四大核心挑战</p>
+                <div class="w-20 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto rounded-full mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-red-500">
+                    <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-red-600">01</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">优质不优价</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">中原农产品品质优良，但缺乏品牌溢价能力，只能以原材料低价出口，利润被中间商层层剥削</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-orange-500">
+                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-orange-600">02</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">出海渠道单一</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">依赖传统外贸链条长、成本高，需要大量资金囤货建仓，大学生和中小农户无法承担</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-yellow-500">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-yellow-600">03</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">品牌缺失</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">农产品无标准化包装，无国际认证，在国际市场缺乏竞争力，难以进入高端消费渠道</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-gray-500">
+                    <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-gray-600">04</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">数字鸿沟</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">农户不懂跨境电商运营，不懂海外流量玩法，面对TikTok等新兴平台无从下手</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 解决方案模块 -->
+    <section id="solution" class="py-20 bg-white section-fade">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">解决方案</h2>
+                <p class="text-gray-600">构建"数字+农业"出海新链路</p>
+                <div class="w-20 h-1 bg-gradient-to-r from-agri-green to-tech-blue mx-auto rounded-full mt-4"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-agri-green to-agri-dark rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">TikTok Shop内容电商</h3>
+                            <p class="text-gray-600">利用短视频+直播精准触达海外华人及亚裔消费群体，用内容建立信任，用流量驱动销售</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-tech-blue to-tech-dark rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">产地直供模式</h3>
+                            <p class="text-gray-600">产地→仓库→TikTok小店→海外消费者，砍掉5层中间商，利润直达农户与工厂</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-wheat to-orange-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">轻资产零库存</h3>
+                            <p class="text-gray-600">大学生负责运营与内容，工厂负责生产与发货，按销售额分成，零资金启动，零库存风险</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-agri-green/20 to-tech-blue/20 rounded-3xl transform rotate-3"></div>
+                    <div class="relative bg-white rounded-3xl p-8 shadow-2xl border border-gray-100">
+                        <h4 class="text-lg font-bold text-gray-900 mb-6 text-center">链路对比</h4>
+                        
+                        <div class="space-y-4 mb-8 opacity-50">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-gray-500">传统外贸链路</span>
+                                <span class="text-red-500 font-semibold">5层中间商</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 bg-gray-200 rounded-full">农户</span>
+                                <span class="text-gray-400">→</span>
+                                <span class="px-3 py-1 bg-gray-200 rounded-full">收购商</span>
+                                <span class="text-gray-400">→</span>
+                                <span class="px-3 py-1 bg-gray-200 rounded-full">加工厂</span>
+                                <span class="text-gray-400">→</span>
+                                <span class="px-3 py-1 bg-gray-200 rounded-full">外贸商</span>
+                                <span class="text-gray-400">→</span>
+                                <span class="px-3 py-1 bg-gray-200 rounded-full">海外批发</span>
+                                <span class="text-gray-400">→</span>
+                                <span class="px-3 py-1 bg-gray-200 rounded-full">消费者</span>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t-2 border-dashed border-gray-200 my-6"></div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-agri-green font-semibold">我们的链路</span>
+                                <span class="text-agri-green font-bold">直连消费者</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 bg-agri-green text-white rounded-full">产地</span>
+                                <span class="text-agri-green">→</span>
+                                <span class="px-3 py-1 bg-tech-blue text-white rounded-full">仓库</span>
+                                <span class="text-tech-blue">→</span>
+                                <span class="px-3 py-1 bg-wheat text-soil rounded-full font-bold">TikTok Shop</span>
+                                <span class="text-wheat">→</span>
+                                <span class="px-3 py-1 bg-agri-dark text-white rounded-full">海外消费者</span>
+                            </div>
+                            <div class="mt-4 p-4 bg-agri-green/5 rounded-xl border border-agri-green/20">
+                                <p class="text-center text-agri-dark font-semibold text-sm">链路缩短 80% · 利润提升 50% · 时效提升 60%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 核心创新模块 -->
+    <section id="innovation" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50 section-fade">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">核心创新</h2>
+                <p class="text-gray-600">四大维度构建竞争壁垒</p>
+                <div class="w-20 h-1 bg-gradient-to-r from-agri-green to-tech-blue mx-auto rounded-full mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-agri-green/30">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-agri-green to-agri-dark rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        </div>
+                        <span class="text-5xl font-bold text-gray-100 group-hover:text-agri-green/20 transition-colors">01</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">模式创新</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">轻资产、零库存、低风险的大学生创业模式，无需囤货、无需建厂，以运营能力替代固定资产投入</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-agri-green/10 text-agri-dark rounded-full text-xs font-semibold">零库存</span>
+                        <span class="px-3 py-1 bg-agri-green/10 text-agri-dark rounded-full text-xs font-semibold">纯分成</span>
+                        <span class="px-3 py-1 bg-agri-green/10 text-agri-dark rounded-full text-xs font-semibold">低风险</span>
+                    </div>
+                </div>
+                
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-tech-blue/30">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-tech-blue to-tech-dark rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <span class="text-5xl font-bold text-gray-100 group-hover:text-tech-blue/20 transition-colors">02</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">渠道创新</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">TikTok短视频+直播带货，精准触达海外华人及亚裔群体，用内容建立信任，用算法匹配需求</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-tech-blue/10 text-tech-dark rounded-full text-xs font-semibold">短视频</span>
+                        <span class="px-3 py-1 bg-tech-blue/10 text-tech-dark rounded-full text-xs font-semibold">直播</span>
+                        <span class="px-3 py-1 bg-tech-blue/10 text-tech-dark rounded-full text-xs font-semibold">算法推荐</span>
+                    </div>
+                </div>
+                
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-wheat/50">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-wheat to-orange-500 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                        </div>
+                        <span class="text-5xl font-bold text-gray-100 group-hover:text-wheat/30 transition-colors">03</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">产品创新</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">中原农品标准化改造+黄河农耕文化IP包装，从"散装干货"升级为"文化伴手礼"，提升品牌溢价</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-wheat/20 text-soil rounded-full text-xs font-semibold">标准化</span>
+                        <span class="px-3 py-1 bg-wheat/20 text-soil rounded-full text-xs font-semibold">文化IP</span>
+                        <span class="px-3 py-1 bg-wheat/20 text-soil rounded-full text-xs font-semibold">伴手礼</span>
+                    </div>
+                </div>
+                
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-red-400/30">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        </div>
+                        <span class="text-5xl font-bold text-gray-100 group-hover:text-red-200 transition-colors">04</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">乡村振兴</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">建立"团队+工厂+农户"利益联结机制，每单利润反哺农户，带动增收，助力地方产业发展</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-semibold">联农带农</span>
+                        <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-semibold">利润反哺</span>
+                        <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-semibold">产业升级</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 商业模式模块 -->
+    <section id="business" class="py-20 bg-white section-fade">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">商业模式</h2>
+                <p class="text-gray-600">可持续的盈利与运营体系</p>
+                <div class="w-20 h-1 bg-gradient-to-r from-agri-green to-tech-blue mx-auto rounded-full mt-4"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="bg-gradient-to-br from-agri-green/5 to-tech-blue/5 rounded-2xl p-8 border border-gray-100">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                            <span class="w-8 h-8 bg-agri-green rounded-lg flex items-center justify-center text-white text-sm mr-3">¥</span>
+                            盈利来源
+                        </h3>
+                        <div class="grid sm:grid-cols-3 gap-4">
+                            <div class="bg-white rounded-xl p-4 shadow-sm">
+                                <div class="text-2xl font-bold text-agri-green mb-1">40-50%</div>
+                                <div class="text-sm text-gray-600">销售佣金分成</div>
+                            </div>
+                            <div class="bg-white rounded-xl p-4 shadow-sm">
+                                <div class="text-2xl font-bold text-tech-blue mb-1">3-5%</div>
+                                <div class="text-sm text-gray-600">品牌服务费</div>
+                            </div>
+                            <div class="bg-white rounded-xl p-4 shadow-sm">
+                                <div class="text-2xl font-bold text-wheat mb-1">10-15%</div>
+                                <div class="text-sm text-gray-600">供应链差价</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 border border-gray-200">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                            <span class="w-8 h-8 bg-tech-blue rounded-lg flex items-center justify-center text-white text-sm mr-3">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                            </span>
+                            运营模式
+                        </h3>
+                        <div class="flex flex-wrap items-center justify-between gap-4">
+                            <div class="flex items-center space-x-3 bg-white px-4 py-3 rounded-xl shadow-sm">
+                                <div class="w-10 h-10 bg-agri-green/10 rounded-full flex items-center justify-center">
+                                    <span class="text-agri-green font-bold text-sm">团队</span>
+                                </div>
+                                <div class="text-sm">
+                                    <div class="font-semibold text-gray-900">运营中心</div>
+                                    <div class="text-gray-500">内容+流量+客服</div>
+                                </div>
+                            </div>
+                            <div class="text-gray-400">+</div>
+                            <div class="flex items-center space-x-3 bg-white px-4 py-3 rounded-xl shadow-sm">
+                                <div class="w-10 h-10 bg-wheat/20 rounded-full flex items-center justify-center">
+                                    <span class="text-soil font-bold text-sm">农户</span>
+                                </div>
+                                <div class="text-sm">
+                                    <div class="font-semibold text-gray-900">生产端</div>
+                                    <div class="text-gray-500">种植+加工+发货</div>
+                                </div>
+                            </div>
+                            <div class="text-gray-400">+</div>
+                            <div class="flex items-center space-x-3 bg-white px-4 py-3 rounded-xl shadow-sm">
+                                <div class="w-10 h-10 bg-tech-blue/10 rounded-full flex items-center justify-center">
+                                    <span class="text-tech-blue font-bold text-sm">平台</span>
+                                </div>
+                                <div class="text-sm">
+                                    <div class="font-semibold text-gray-900">TikTok Shop</div>
+                                    <div class="text-gray-500">流量+交易+物流</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-agri-dark to-tech-dark rounded-2xl p-8 text-white shadow-2xl">
+                    <h3 class="text-xl font-bold mb-6">目标客户画像</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-sm font-bold">1</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold mb-1">海外华人</div>
+                                <div class="text-sm text-white/80">35-55岁华裔女性，怀念家乡味道，消费能力强</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-sm font-bold">2</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold mb-1">东南亚市场</div>
+                                <div class="text-sm text-white/80">马来西亚、新加坡等，华人基数大，物流距离近</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-sm font-bold">3</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold mb-1">欧美亚裔</div>
+                                <div class="text-sm text-white/80">美国西海岸、加拿大，追求健康有机食材</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/20">
+                        <div class="text-sm text-white/60 mb-1">核心市场容量</div>
+                        <div class="text-3xl font-bold">800万+</div>
+                        <div class="text-sm text-white/80">海外核心消费群体</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. 预计运营成果/数据模块 -->
+    <section id="data" class="py-20 bg-gray-50 section-fade">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">预计运营成果</h2>
+                <p class="text-gray-600">预计数据驱动的增长轨迹</p>
+                <div class="w-20 h-1 bg-gradient-to-r from-agri-green to-tech-blue mx-auto rounded-full mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white rounded-2xl p-6 shadow-lg text-center group hover:shadow-2xl transition-all">
+                    <div class="text-4xl font-bold text-agri-green mb-2 group-hover:scale-110 transition-transform">50+</div>
+                    <div class="text-gray-600 text-sm">服务农户数量</div>
+                    <div class="mt-2 text-xs text-gray-400">延津小麦种植户</div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-lg text-center group hover:shadow-2xl transition-all">
+                    <div class="text-4xl font-bold text-tech-blue mb-2 group-hover:scale-110 transition-transform">12</div>
+                    <div class="text-gray-600 text-sm">上线产品SKU</div>
+                    <div class="mt-2 text-xs text-gray-400">粉皮、粉条、杂粮系列</div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-lg text-center group hover:shadow-2xl transition-all">
+                    <div class="text-4xl font-bold text-wheat mb-2 group-hover:scale-110 transition-transform">¥6.5万</div>
+                    <div class="text-gray-600 text-sm">年度GMV</div>
+                    <div class="mt-2 text-xs text-gray-400">首年运营数据</div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-lg text-center group hover:shadow-2xl transition-all">
+                    <div class="text-4xl font-bold text-purple-600 mb-2 group-hover:scale-110 transition-transform">1.2万</div>
+                    <div class="text-gray-600 text-sm">粉丝增长</div>
+                    <div class="mt-2 text-xs text-gray-400">TikTok账号矩阵</div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h4 class="text-lg font-bold text-gray-900 mb-6">销售增长趋势</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-600">第1季度</span>
+                                <span class="font-semibold text-gray-900">验证期</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-agri-green to-agri-dark h-3 rounded-full chart-bar" style="width: 15%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-600">第2季度</span>
+                                <span class="font-semibold text-gray-900">增长期</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-tech-blue to-tech-dark h-3 rounded-full chart-bar" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-600">第3季度</span>
+                                <span class="font-semibold text-gray-900">稳定期</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-wheat to-orange-500 h-3 rounded-full chart-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-600">第4季度</span>
+                                <span class="font-semibold text-gray-900">爆发期</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-purple-500 to-pink-600 h-3 rounded-full chart-bar" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h4 class="text-lg font-bold text-gray-900 mb-6">内容运营数据</h4>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-4 bg-gray-50 rounded-xl">
+                            <div class="text-3xl font-bold text-agri-green mb-1">200+</div>
+                            <div class="text-xs text-gray-600">短视频发布</div>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-xl">
+                            <div class="text-3xl font-bold text-tech-blue mb-1">50万+</div>
+                            <div class="text-xs text-gray-600">总播放量</div>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-xl">
+                            <div class="text-3xl font-bold text-wheat mb-1">30+</div>
+                            <div class="text-xs text-gray-600">合作达人</div>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-xl">
+                            <div class="text-3xl font-bold text-purple-600 mb-1">8.5%</div>
+                            <div class="text-xs text-gray-600">平均转化率</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. 团队介绍模块 -->
+    <section id="team" class="py-20 bg-white section-fade">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">团队介绍</h2>
+                <p class="text-gray-600">年轻、专业、有执行力的创业团队</p>
+                <div class="w-20 h-1 bg-gradient-to-r from-agri-green to-tech-blue mx-auto rounded-full mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="group relative bg-gradient-to-br from-agri-green/5 to-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-agri-green/10 rounded-bl-full"></div>
+                    <div class="relative">
+                        <div class="w-20 h-20 bg-gradient-to-br from-agri-green to-agri-dark rounded-2xl flex items-center justify-center text-white text-2xl font-bold mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                            张
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1">张政基</h3>
+                        <p class="text-agri-green text-sm font-semibold mb-3">项目负责人</p>
+                        <p class="text-gray-600 text-sm">统筹项目整体运营，对接高校与工厂资源，制定战略规划</p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">电商</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">管理</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative bg-gradient-to-br from-tech-blue/5 to-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-tech-blue/10 rounded-bl-full"></div>
+                    <div class="relative">
+                        <div class="w-20 h-20 bg-gradient-to-br from-tech-blue to-tech-dark rounded-2xl flex items-center justify-center text-white text-2xl font-bold mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                            沈
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1">沈滨</h3>
+                        <p class="text-tech-blue text-sm font-semibold mb-3">内容运营</p>
+                        <p class="text-gray-600 text-sm">负责短视频拍摄、剪辑、账号运营，打造多语种内容体系</p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">新媒体</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">拍摄</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative bg-gradient-to-br from-wheat/10 to-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-wheat/20 rounded-bl-full"></div>
+                    <div class="relative">
+                        <div class="w-20 h-20 bg-gradient-to-br from-wheat to-orange-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                            王
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1">王奥博</h3>
+                        <p class="text-soil text-sm font-semibold mb-3">视觉设计</p>
+                        <p class="text-gray-600 text-sm">负责产品包装设计、短视频后期、店铺视觉升级</p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">设计</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">剪辑</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative bg-gradient-to-br from-purple-500/5 to-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-purple-500/10 rounded-bl-full"></div>
+                    <div class="relative">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                            宋
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1">宋其轩</h3>
+                        <p class="text-purple-600 text-sm font-semibold mb-3">达人BD</p>
+                        <p class="text-gray-600 text-sm">负责海外达人建联、合作洽谈，撰写英文合作方案</p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">英语</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">商务</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8 border border-gray-200">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">指导老师</h4>
+                        <p class="text-gray-600">刘保菊 副教授 | 平顶山学院信息工程学院</p>
+                        <p class="text-sm text-gray-500 mt-1">10年教学经验，多次指导"互联网+""挑战杯"获奖项目</p>
+                    </div>
+                    <div class="flex gap-4 text-center">
+                        <div>
+                            <div class="text-2xl font-bold text-agri-green">4</div>
+                            <div class="text-xs text-gray-600">核心成员</div>
+                        </div>
+                        <div class="w-px bg-gray-300"></div>
+                        <div>
+                            <div class="text-2xl font-bold text-tech-blue">5</div>
+                            <div class="text-xs text-gray-600">专业覆盖</div>
+                        </div>
+                        <div class="w-px bg-gray-300"></div>
+                        <div>
+                            <div class="text-2xl font-bold text-wheat">100%</div>
+                            <div class="text-xs text-gray-600">北京邮电大学博士毕业</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. 未来规划模块 -->
+    <section id="future" class="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white section-fade">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">未来规划</h2>
+                <p class="text-gray-400">三步走战略，打造中原农产出海标杆</p>
+                <div class="w-20 h-1 bg-gradient-to-r from-agri-green to-tech-blue mx-auto rounded-full mt-4"></div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-agri-green via-tech-blue to-wheat md:-translate-x-1/2"></div>
+                
+                <div class="space-y-12">
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div class="flex-1 md:text-right md:pr-8 mb-4 md:mb-0">
+                            <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 inline-block md:text-left hover:bg-white/20 transition-colors">
+                                <span class="inline-block px-3 py-1 bg-agri-green rounded-full text-xs font-semibold mb-3">短期 0-12个月</span>
+                                <h3 class="text-xl font-bold mb-2">扩大品类，提升销量</h3>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>• 粉皮系列月销突破100单</li>
+                                    <li>• 拓展红薯粉条、山药粉条品类</li>
+                                    <li>• 注册独立经营主体</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 w-8 h-8 bg-agri-green rounded-full border-4 border-gray-900 md:-translate-x-1/2 z-10 shadow-lg shadow-agri-green/50"></div>
+                        <div class="flex-1 md:pl-8 hidden md:block"></div>
+                    </div>
+                    
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div class="flex-1 md:pr-8 hidden md:block"></div>
+                        <div class="absolute left-4 md:left-1/2 w-8 h-8 bg-tech-blue rounded-full border-4 border-gray-900 md:-translate-x-1/2 z-10 shadow-lg shadow-tech-blue/50"></div>
+                        <div class="flex-1 md:pl-8 mt-4 md:mt-0">
+                            <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 inline-block hover:bg-white/20 transition-colors">
+                                <span class="inline-block px-3 py-1 bg-tech-blue rounded-full text-xs font-semibold mb-3">中期 1-2年</span>
+                                <h3 class="text-xl font-bold mb-2">打造自有农出海品牌</h3>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>• 建立"新乡丝路"自主品牌</li>
+                                    <li>• 布局Shopee、Temu多平台</li>
+                                    <li>• 年GMV突破100万元</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div class="flex-1 md:text-right md:pr-8 mb-4 md:mb-0">
+                            <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 inline-block md:text-left hover:bg-white/20 transition-colors">
+                                <span class="inline-block px-3 py-1 bg-wheat text-soil rounded-full text-xs font-semibold mb-3">长期 3-5年</span>
+                                <h3 class="text-xl font-bold mb-2">搭建中原农产出海孵化平台</h3>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>• 服务20+农产企业</li>
+                                    <li>• 带动1000+农户增收</li>
+                                    <li>• 成为区域跨境电商标杆</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 w-8 h-8 bg-wheat rounded-full border-4 border-gray-900 md:-translate-x-1/2 z-10 shadow-lg shadow-wheat/50"></div>
+                        <div class="flex-1 md:pl-8 hidden md:block"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. 联系方式模块 -->
+    <section class="py-20 bg-white section-fade">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gradient-to-br from-agri-green/5 to-tech-blue/5 rounded-3xl p-12 border border-gray-100 shadow-2xl">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">联系我们</h2>
+                <p class="text-gray-600 mb-8">期待与您携手，共筑数字丝路，助力乡村振兴</p>
+                
+                <div class="grid sm:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-agri-green/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-agri-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div class="text-sm text-gray-500 mb-1">团队邮箱</div>
+                        <div class="font-semibold text-gray-900">xinxiangsilu@example.com</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-tech-blue/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-tech-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        </div>
+                        <div class="text-sm text-gray-500 mb-1">联系电话</div>
+                        <div class="font-semibold text-gray-900">166-3739-1719</div>
+                    </div>
+                </div>
+                
+                <div class="pt-8 border-t border-gray-200">
+                    <p class="text-2xl font-bold gradient-text mb-2">数字丝路助农出海，黄河农品走向全球</p>
+                    <p class="text-sm text-gray-500">新乡丝路团队 · 挑战杯大学生创新创业大赛</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-8 text-center text-sm text-gray-400">
+        <p>© 2024 新乡丝路创业团队 | 平顶山学院 | "挑战杯"大学生创新创业大赛参赛项目</p>
+    </footer>
+
+    <script>
+        // 滚动动画观察器
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-fade').forEach((section) => {
+            observer.observe(section);
+        });
+
+        // 导航栏滚动效果
+        let lastScroll = 0;
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // 关闭移动端菜单
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // 图表动画触发
+        const chartObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.style.width;
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.chart-bar').forEach(bar => {
+            chartObserver.observe(bar);
+        });
+    </script>
+</body>
+</html>
